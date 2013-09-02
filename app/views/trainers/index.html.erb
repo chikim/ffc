@@ -1,0 +1,25 @@
+<h1>Our trainers</h1>
+
+<table>
+  <tbody>
+    <% @trainers.each do |trainer| %>
+      <tr>
+        <td>
+          <%= link_to trainer_path(trainer) do %>
+            <%= image_tag trainer.profile_picture, width: 150, height: 200 %>
+          <% end %>
+        </td>
+        <td>
+          <p><%= link_to trainer_path(trainer) do %>
+            <h3><%= trainer.name %></h3>
+          <% end %></p>
+          <p><%= trainer.position %></p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @trainers, previous_label: "<", next_label: ">" %>
+</div>

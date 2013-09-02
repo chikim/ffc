@@ -16,5 +16,11 @@ namespace :master do
     create_master Article do |article|
       {id: article[0], type: article[1], title: article[2], short_description: article[3], content: article[4]}
     end
+
+    Trainer.destroy_all
+    puts "Create Trainer"
+    create_master Trainer do |trainer|
+      {id: trainer[0], name: trainer[1], position: trainer[2], self_introduction: trainer[3], bio: trainer[4]}
+    end
   end
 end
