@@ -7,7 +7,7 @@ Ffc::Application.routes.draw do
   get :contact, to: "home#contact"
 
   resources :news, only: [:index, :show]
-  resources :classes, only: [:index, :show]
+  resources :courses, only: [:index, :show]
   resources :trainers, only: [:index, :show]
   resources :galleries, only: [:index, :show] do
     resources :photos, only: [:show]

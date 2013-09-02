@@ -1,0 +1,13 @@
+<h1><%= @course.title %></h1>
+
+<div>
+  <h3><%= @course.title %></h3>
+  <%= @course.content %>
+</div>
+
+<div>
+  <h3>Other courses</h3>
+  <% Article::Course.ealier_than(@course).each do |course| %>
+    <p><%= link_to course.title, course_path(course) %></p>
+  <% end %>
+</div>
