@@ -1,6 +1,10 @@
 Ffc::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root to: "home#index"
+  get :home, to: "home#index"
+  get :introduction, to: "home#introduction"
+  get :rules, to: "home#rules"
+  get :contact, to: "home#contact"
 
   resources :news, only: [:index, :show]
   resources :classes, only: [:index, :show]

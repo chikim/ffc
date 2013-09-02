@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   end
 
   def introduction
+    @introduction = Article::Introduction.last
+  end
+
+  def rules
+    @rules = Article::Rules.last
   end
 
   def contact
