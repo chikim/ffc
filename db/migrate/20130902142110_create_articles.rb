@@ -6,7 +6,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :short_description
       t.text :content
 
-      t.timestamp
+      t.timestamps
     end
 
     add_attachment :articles, :cover_image

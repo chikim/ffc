@@ -1,0 +1,13 @@
+<h1><%= @news.title %></h1>
+
+<div>
+  <h3><%= @news.title %></h3>
+  <%= @news.content %>
+</div>
+
+<div>
+  <h3>Ealier news</h3>
+  <% Article::News.ealier_than(@news).each do |news| %>
+    <p><%= link_to news.title, news_path(news) %></p>
+  <% end %>
+</div>
