@@ -1,4 +1,18 @@
 Ffc::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  root to: "home#index"
+
+  resources :news, only: [:index, :show]
+  resources :classes, only: [:index, :show]
+  resources :trainers, only: [:index, :show]
+  resources :galleries, only: [:index, :show] do
+    resources :photos, only: [:show]
+  end
+  resources :videos, only: [:index, :show]
+  resources :articles, only: [:index, :show]
+
+  namespace :admin do
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +53,7 @@ Ffc::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
