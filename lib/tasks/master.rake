@@ -22,5 +22,17 @@ namespace :master do
     create_master Trainer do |trainer|
       {id: trainer[0], name: trainer[1], position: trainer[2], self_introduction: trainer[3], bio: trainer[4]}
     end
+
+    Gallery.destroy_all
+    puts "Create Gallery"
+    create_master Gallery do |gallery|
+      {id: gallery[0], title: gallery[1], cover_photo_id: gallery[2]}
+    end
+
+    Photo.destroy_all
+    puts "Create Photo"
+    create_master Photo do |photo|
+      {id: photo[0], title: photo[1], gallery_id: photo[2]}
+    end
   end
 end

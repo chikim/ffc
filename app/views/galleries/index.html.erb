@@ -1,0 +1,24 @@
+<h1>Galleries</h1>
+
+<table>
+  <tbody>
+    <% @galleries.each do |gallery| %>
+      <tr>
+        <td>
+          <%= link_to gallery_path(gallery) do %>
+            <%= image_tag gallery.cover_image, width: 150, height: 200 %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to gallery_path(gallery) do %>
+            <h3><%= gallery.title %></h3>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @galleries, previous_label: "<", next_label: ">" %>
+</div>

@@ -4,6 +4,8 @@ pagination:
   default_first_page: 1
   articles: 10
   trainers: 10
+  galleries: 10
+  photos: 10
 
 articles:
   default_cover_image_url: "/cover_images/default.jpg"
@@ -11,3 +13,6 @@ articles:
 
 trainers:
   default_profile_picture_url: "/profile_pictures/default.jpg"
+
+photos:
+  default_image_url: "/images/default.jpg"
