@@ -4,7 +4,6 @@ Ffc::Application.routes.draw do
   get :home, to: "home#index"
   get :introduction, to: "home#introduction"
   get :rules, to: "home#rules"
-  get :contact, to: "home#contact"
 
   resources :news, only: [:index, :show]
   resources :courses, only: [:index, :show]

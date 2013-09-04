@@ -9,7 +9,4 @@ class HomeController < ApplicationController
   def rules
     @rules = Article::Rules.last
   end
-
-  def contact
-  end
 end
