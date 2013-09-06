@@ -34,5 +34,11 @@ namespace :master do
     create_master Photo do |photo|
       {id: photo[0], title: photo[1], gallery_id: photo[2]}
     end
+
+    Video.destroy_all
+    puts "Create Video"
+    create_master Video do |video|
+      {id: video[0], title: video[1], url: video[2]}
+    end
   end
 end

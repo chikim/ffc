@@ -6,6 +6,7 @@ pagination:
   trainers: 10
   galleries: 10
   photos: 10
+  videos: 10
 
 articles:
   default_cover_image_url: "/cover_images/default.jpg"

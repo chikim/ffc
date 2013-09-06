@@ -1,0 +1,24 @@
+<h1>Videos</h1>
+
+<table>
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td>
+          <%= link_to video_path(video) do %>
+            <%= image_tag video.thumbnail, width: 200, height: 150 %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to video_path(video) do %>
+            <h3><%= video.title %></h3>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @videos, previous_label: "<", next_label: ">" %>
+</div>

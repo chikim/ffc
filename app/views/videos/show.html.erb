@@ -1,0 +1,7 @@
+<div>
+  <h3><%= @video.title %></h3>
+</div>
+
+<div>
+  <%= @video.iframe_src.try :html_safe %>
+</div>
