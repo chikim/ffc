@@ -5,6 +5,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Article::Course.find_by id: params[:id]
+    @course = Article::Course.find params[:id]
   end
 end

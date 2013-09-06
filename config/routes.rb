@@ -12,7 +12,6 @@ Ffc::Application.routes.draw do
     resources :photos, only: [:show]
   end
   resources :videos, only: [:index, :show]
-  resources :articles, only: [:index, :show]
 
   namespace :admin do
   end

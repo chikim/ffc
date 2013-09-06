@@ -1,0 +1,9 @@
+<div>
+  <h3><%= @photo.title %></h3>
+</div>
+
+<div>
+  <%= image_tag @photo.image %>
+</div>
+
+<%= link_to "gallery", gallery_path(@photo.gallery) %>

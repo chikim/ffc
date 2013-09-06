@@ -5,6 +5,6 @@ class TrainersController < ApplicationController
   end
 
   def show
-    @trainer = Trainer.find_by id: params[:id]
+    @trainer = Trainer.find params[:id]
   end
 end

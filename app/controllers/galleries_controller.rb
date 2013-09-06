@@ -5,7 +5,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @gallery = Gallery.find_by id: params[:id]
+    @gallery = Gallery.find params[:id]
     @page = (params[:page] || Settings.pagination.default_first_page).to_i
     @photos = @gallery.photos.paginate page: @page, per_page: Settings.pagination.photos
   end
