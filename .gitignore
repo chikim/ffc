@@ -117,3 +117,6 @@ dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
+
+#CKEditor assets
+public/ckeditor_assets

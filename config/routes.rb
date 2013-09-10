@@ -14,6 +14,13 @@ Ffc::Application.routes.draw do
   resources :videos, only: [:index, :show]
 
   namespace :admin do
+    root to: "admin#index"
+    resource :introduction, only: [] do
+      get :rules
+      get :general
+      post :update_general
+      post :update_rules
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

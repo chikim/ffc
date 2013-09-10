@@ -1,3 +1,7 @@
+admin:
+  username: ffc_dev
+  password: l?6Q11mC
+
 handle_exceptions: false
 
 pagination:

@@ -1,6 +1,8 @@
 <h1>Club's Rules</h1>
 
-<div>
-  <h3><%= @rules.title %></h3>
-  <%= @rules.content %>
-</div>
+<% if @rules %>
+  <div>
+    <h3><%= @rules.title %></h3>
+    <%= @rules.content.html_safe %>
+  </div>
+<% end %>
