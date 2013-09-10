@@ -1,6 +1,6 @@
 <div>
   <h3><%= @news.title %></h3>
-  <%= @news.content %>
+  <%= @news.content.html_safe %>
 </div>
 
 <div>
