@@ -1,5 +1,7 @@
 <h1>Courses</h1>
 
+<div><%= link_to :new, new_admin_course_path %>
+
 <% if flash[:notice] %>
   <h3><font color="red"><%= flash[:notice] %></font></h3>
 <% end %>

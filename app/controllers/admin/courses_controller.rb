@@ -25,6 +25,19 @@ class Admin::CoursesController < Admin::BaseController
     end
   end
 
+  def new
+    @course = Article::Course.new
+  end
+
+  def create
+    @course = Article::Course.new(course_params)
+    if @course.save
+      redirect_to edit_admin_course_path(@course), notice: "Course was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_course
     @course = Article::Course.find params[:id]
