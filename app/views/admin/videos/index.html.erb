@@ -1,0 +1,30 @@
+<h1>Videos</h1>
+
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<table>
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td>
+          <%= link_to edit_admin_video_path(video) do %>
+            <%= image_tag video.thumbnail, width: 200, height: 150 %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_admin_video_path(video) do %>
+            <h3><%= video.title %></h3>
+          <% end %>
+        </td>
+        <td><%= link_to :edit, edit_admin_video_path(video) %></td>
+        <td><%= link_to :delete, admin_video_path(video), method: :delete, confirm: "Are you sure?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @videos, previous_label: "<", next_label: ">" %>
+</div>

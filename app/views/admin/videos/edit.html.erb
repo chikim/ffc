@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<div>
+  <h3><%= @video.title %></h3>
+</div>
+
+<div>
+  <%= @video.iframe_src.try :html_safe %>
+</div>
+
+<div>
+  <%= form_for @video, url: admin_video_path, method: :put do |f| %>
+    <p>
+    <%= f.label :title %>
+    </br>
+    <%= f.text_field :title %>
+    </p>
+
+    <p>
+    <%= f.label :url %>
+    </br>
+    <%= f.text_field :url %> (Youtube and Vimeo only)
+    </p>
+
+    <p><%= f.submit %></p>
+  <% end %>
+</div>
