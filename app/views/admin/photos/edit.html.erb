@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<h1>Gallery <%= link_to @gallery.title, edit_admin_gallery_path(@gallery) %>'s <%= link_to :photos, admin_gallery_photos_path(@gallery) %></h1>
+
+<div>
+  <h3><%= @photo.title %></h3>
+</div>
+
+<div>
+  <%= image_tag @photo.image, width: 480, height: 640 %>
+</div>
+
+<div>
+  <%= form_for @photo, url: admin_gallery_photo_path, method: :put do |f| %>
+    <p>
+    <%= f.label :title %>
+    </br>
+    <%= f.text_field :title %>
+    </p>
+
+    <p>
+    <%= f.label :image %>
+    </br>
+    <%= f.file_field :image %>
+    </p>
+
+    <p><%= f.submit %></p>
+  <% end %>
+</div>

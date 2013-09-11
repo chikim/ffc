@@ -1,0 +1,30 @@
+<h1>Galleries</h1>
+
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<table>
+  <tbody>
+    <% @galleries.each do |gallery| %>
+      <tr>
+        <td>
+          <%= link_to edit_admin_gallery_path(gallery) do %>
+            <%= image_tag gallery.cover_image, width: 150, height: 200 %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_admin_gallery_path(gallery) do %>
+            <h3><%= gallery.title %></h3>
+          <% end %>
+        </td>
+        <td><%= link_to :edit, edit_admin_gallery_path(gallery) %></td>
+        <td><%= link_to :delete, admin_gallery_path(gallery), method: :delete, confirm: "Are you sure?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @galleries, previous_label: "<", next_label: ">" %>
+</div>
