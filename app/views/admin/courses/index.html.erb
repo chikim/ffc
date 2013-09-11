@@ -1,0 +1,31 @@
+<h1>Courses</h1>
+
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<table>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td>
+          <%= link_to edit_admin_course_path(course) do %>
+            <%= image_tag course.cover_image, width: 200, height: 150 %>
+          <% end %>
+        </td>
+        <td>
+          <p><%= link_to edit_admin_course_path(course) do %>
+            <h3><%= course.title %></h3>
+          <% end %></p>
+          <p><%= course.short_description %></p>
+        </td>
+        <td><%= link_to :edit, edit_admin_course_path(course) %></td>
+        <td><%= link_to :delete, admin_course_path(course), method: :delete, confirm: "Are you sure?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @courses, previous_label: "<", next_label: ">" %>
+</div>

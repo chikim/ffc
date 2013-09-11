@@ -22,6 +22,7 @@ Ffc::Application.routes.draw do
       post :update_rules
     end
     resources :news
+    resources :courses
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
