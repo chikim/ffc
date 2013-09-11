@@ -9,10 +9,10 @@
 
 <div>
   <h3>Bio</h3>
-  <p><%= @trainer.bio %></p>
+  <p><%= @trainer.bio.html_safe %></p>
 </div>
 
 <div>
   <h3>Self introduction</h3>
-  <p><%= @trainer.self_introduction %></p>
+  <p><%= @trainer.self_introduction.html_safe %></p>
 </div>

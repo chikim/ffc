@@ -1,0 +1,31 @@
+<h1>Our trainers</h1>
+
+<% if flash[:notice] %>
+  <h3><font color="red"><%= flash[:notice] %></font></h3>
+<% end %>
+
+<table>
+  <tbody>
+    <% @trainers.each do |trainer| %>
+      <tr>
+        <td>
+          <%= link_to edit_admin_trainer_path(trainer) do %>
+            <%= image_tag trainer.profile_picture, width: 150, height: 200 %>
+          <% end %>
+        </td>
+        <td>
+          <p><%= link_to edit_admin_trainer_path(trainer) do %>
+            <h3><%= trainer.name %></h3>
+          <% end %></p>
+          <p><%= trainer.position %></p>
+        </td>
+        <td><%= link_to :edit, edit_admin_trainer_path(trainer) %></td>
+        <td><%= link_to :delete, admin_trainer_path(trainer), method: :delete, confirm: "Are you sure?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="apple_pagination">
+  <%= will_paginate @trainers, previous_label: "<", next_label: ">" %>
+</div>
