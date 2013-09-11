@@ -7,26 +7,4 @@
   <%= @news.content.html_safe %>
 </div>
 
-<div>
-  <%= form_for @news, url: admin_news_path, method: :put do |f| %>
-    <p>
-    <%= f.label :title %>
-    </br>
-    <%= f.text_field :title %>
-    </p>
-
-    <p>
-    <%= f.label :short_description %>
-    </br>
-    <%= f.text_area :short_description %>
-    </p>
-
-    <p>
-    <%= f.label :content %>
-    </br>
-    <%= f.text_area :content, class: :ckeditor %>
-    </p>
-
-    <p><%= f.submit %></p>
-  <% end %>
-</div>
+<%= render "form", news: @news %>

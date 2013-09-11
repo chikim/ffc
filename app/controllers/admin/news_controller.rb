@@ -25,12 +25,25 @@ class Admin::NewsController < Admin::BaseController
     end
   end
 
+  def new
+    @news = Article::News.new
+  end
+
+  def create
+    @news = Article::News.new(news_params)
+    if @news.save
+      redirect_to edit_admin_news_path(@news), notice: "News was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_news
     @news = Article::News.find params[:id]
   end
 
   def news_params
-    params.require(:article_news).permit(:title, :short_description, :content)
+    params.require(:article_news).permit(:title, :short_description, :content, :cover_image)
   end
 end
