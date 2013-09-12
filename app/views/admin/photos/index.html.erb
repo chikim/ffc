@@ -1,5 +1,7 @@
 <h1>Gallery <%= link_to @gallery.title, edit_admin_gallery_path(@gallery) %>'s photos</h1>
 
+<div><%= link_to :new, new_admin_gallery_photo_path(@gallery) %>
+
 <% if flash[:notice] %>
   <h3><font color="red"><%= flash[:notice] %></font></h3>
 <% end %>

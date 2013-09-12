@@ -26,6 +26,19 @@ class Admin::PhotosController < Admin::BaseController
     end
   end
 
+  def new
+    @photo = @gallery.photos.new
+  end
+
+  def create
+    @photo = @gallery.photos.new(photo_params)
+    if @photo.save
+      redirect_to edit_admin_gallery_photo_path(@gallery, @photo), notice: "Photo was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_gallery
     @gallery = Gallery.find params[:gallery_id]

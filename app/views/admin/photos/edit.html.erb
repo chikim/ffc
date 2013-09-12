@@ -12,20 +12,4 @@
   <%= image_tag @photo.image, width: 480, height: 640 %>
 </div>
 
-<div>
-  <%= form_for @photo, url: admin_gallery_photo_path, method: :put do |f| %>
-    <p>
-    <%= f.label :title %>
-    </br>
-    <%= f.text_field :title %>
-    </p>
-
-    <p>
-    <%= f.label :image %>
-    </br>
-    <%= f.file_field :image %>
-    </p>
-
-    <p><%= f.submit %></p>
-  <% end %>
-</div>
+<%= render "form", photo: @photo %>
