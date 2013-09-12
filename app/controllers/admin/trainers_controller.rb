@@ -25,6 +25,19 @@ class Admin::TrainersController < Admin::BaseController
     end
   end
 
+  def new
+    @trainer = Trainer.new
+  end
+
+  def create
+    @trainer = Trainer.new(trainer_params)
+    if @trainer.save
+      redirect_to edit_admin_trainer_path(@trainer), notice: "Trainer was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_trainer
     @trainer = Trainer.find params[:id]
