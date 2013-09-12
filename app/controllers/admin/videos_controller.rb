@@ -25,6 +25,19 @@ class Admin::VideosController < Admin::BaseController
     end
   end
 
+  def new
+    @video = Video.new
+  end
+
+  def create
+    @video = Video.new(video_params)
+    if @video.save
+      redirect_to edit_admin_video_path(@video), notice: "Video was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_video
     @video = Video.find params[:id]
