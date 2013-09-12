@@ -25,6 +25,19 @@ class Admin::GalleriesController < Admin::BaseController
     end
   end
 
+  def new
+    @gallery = Gallery.new
+  end
+
+  def create
+    @gallery = Gallery.new(gallery_params)
+    if @gallery.save
+      redirect_to edit_admin_gallery_path(@gallery), notice: "Gallery was created successfully"
+    else
+      render :new
+    end
+  end
+
   private
   def load_gallery
     @gallery = Gallery.find params[:id]

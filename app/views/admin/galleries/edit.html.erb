@@ -10,28 +10,4 @@
   <%= link_to :photos, admin_gallery_photos_path(@gallery) %>
 </div>
 
-<div>
-  <%= form_for @gallery, url: admin_gallery_path, method: :put do |f| %>
-    <p>
-    <%= f.label :title %>
-    </br>
-    <%= f.text_field :title %>
-    </p>
-
-    <p>
-    <%= f.label :cover_image %>
-    </br>
-    <table>
-      <% @photos.each do |photo| %>
-        <tr>
-          <td><%= f.radio_button :cover_photo_id, photo.id %></td>
-          <td><%= photo.title %></td>
-          <td><%= image_tag photo.image, width: 150, height: 200 %></td>
-        </tr>
-      <% end %>
-    </table>
-    </p>
-
-    <p><%= f.submit %></p>
-  <% end %>
-</div>
+<%= render "form", gallery: @gallery %>
